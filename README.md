@@ -161,3 +161,19 @@ Talk about NFT
 - improve `BasicNft.sol`
 
 ## Basic NFT: Deploy Script
+
+- create `DeployBasicNft.s.sol`
+- run:
+  ```bash
+  fogre compile
+  ```
+
+## Basic NFT: Tests
+
+- create `BasicNftTest.t.sol`
+- run:
+  ```bash
+  forge test
+  ```
+
+## Basic NFT: Interactions
