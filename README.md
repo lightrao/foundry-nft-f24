@@ -177,3 +177,11 @@ Talk about NFT
   ```
 
 ## Basic NFT: Interactions
+
+- run:
+  ```bash
+  forge install Cyfrin/foundry-devops --no-commit
+  ```
+- create `Interactions.s.sol`
+
+## Basic NFT: Testnet Demo
