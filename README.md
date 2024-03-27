@@ -225,3 +225,32 @@ Talk about NFT
 - create `svgBase64Encode.txt` file
 
 ## SVG NFT: Introduction
+
+- note layout of code:
+
+  ```solidity
+  // Layout of Contract:
+  // version
+  // imports
+  // errors
+  // interfaces, libraries, contracts
+  // Type declarations
+  // State variables
+  // Events
+  // Modifiers
+  // Functions
+
+  // Layout of Functions:
+  // constructor
+  // receive function (if exists)
+  // fallback function (if exists)
+  // external
+  // public
+  // internal
+  // private
+  // view & pure functions
+  ```
+
+- create `MoodNft.sol`
+
+## SVG NFT: Encoding the NFT
