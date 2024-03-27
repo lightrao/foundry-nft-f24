@@ -182,6 +182,29 @@ Talk about NFT
   ```bash
   forge install Cyfrin/foundry-devops --no-commit
   ```
+  - see `https://github.com/Cyfrin/foundry-devops`
 - create `Interactions.s.sol`
 
 ## Basic NFT: Testnet Demo
+
+- run:
+  ```bash
+  sudo apt install make -y
+  make --version
+  ```
+- create `Makefile`
+- edit `foundry.toml`
+- run:
+
+  ```bash
+  make deploy ARGS="--network sepolia"
+  ```
+
+- run:
+  ```bash
+  make mint ARGS="--network sepolia"
+  ```
+- from Metamask `Import NFT` import the Nft contract address which is just deployed
+  - fill out `Address`, `Token ID` correctly
+
+## The issue with IPFS & HTTPS TokenURI(Metadata) NFTs
