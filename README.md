@@ -208,3 +208,20 @@ Talk about NFT
   - fill out `Address`, `Token ID` correctly
 
 ## The issue with IPFS & HTTPS TokenURI(Metadata) NFTs
+
+- Ranking of "NFT Metadata Decentralization": SVG > IPFS >> HTTPS
+- `pindata.cloud` can pin your data
+
+## What is an SVG?
+
+- see `https://www.w3schools.com/graphics/svg_intro.asp`
+- create `example.svg`
+- run:
+  ```bash
+  cd img
+  base64 -i example.svg
+  ```
+- add some svg file to img folder
+- create `svgBase64Encode.txt` file
+
+## SVG NFT: Introduction
