@@ -254,3 +254,18 @@ Talk about NFT
 - create `MoodNft.sol`
 
 ## SVG NFT: Encoding the NFT
+
+- use base64 encode svg file and add prefix so that it become embedded URL(image URI) for browser
+  - see `svgBase64Encode.txt` file
+  - note: token URI(NFT state) include image URI(NFT view)
+- encode json object to store token URI(a json object) on chain
+  - using openzeppelin Base64
+  - first make json object(NFT state aka token metadata) and then convert it into json token URI
+- improve `tokenURI` function which using base64 encode
+- create `MoodNftURITest.t.sol` file
+- run:
+  ```bash
+  forge test --match-test testViewTokenURI -vv
+  ```
+
+## SVG NFT: Flipping the mood

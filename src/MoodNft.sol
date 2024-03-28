@@ -18,7 +18,7 @@ contract MoodNft is ERC721, Ownable {
     string private s_sadSvgUri;
     string private s_happySvgUri;
 
-    mapping(uint256 => NFTState) private s_tokenIdToState;
+    mapping(uint256 => NFTState) private s_tokenIdToState; // 0 is Happy
 
     event CreatedNFT(uint256 indexed tokenId);
 
