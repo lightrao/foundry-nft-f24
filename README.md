@@ -277,3 +277,14 @@ Talk about NFT
 - create `DeployMoodNft.s.sol`
 - create `DeployMoodNftTest.t.sol`
 - run:`forge test --match-test testConvertSvgToUri`
+- use foundry cheat code to read svg file
+
+  - add `fs_permissions` into `foundry.tomal`
+  - use `vm.readFile` to read svg file as string in `DeployMoodNft.s.sol`
+  - in `DeployMoodNft.s.sol` file, broadcast to deploy contract
+  - run `forge script script/DeployMoodNft.s.sol`
+
+- create `MoodNftTest.t.sol` file
+  - add `testFlipTokenToSad` function
+
+## SVG NFT: Debugging practice & some notes

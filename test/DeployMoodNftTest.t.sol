@@ -2,8 +2,8 @@
 pragma solidity ^0.8.18;
 
 import {Test, console} from "forge-std/Test.sol";
-import {DeployMoodNft} from "../script/DeployMoodNft.s.sol";
-import {MoodNft} from "../src/MoodNft.sol";
+import {DeployMoodNft} from "../../script/DeployMoodNft.s.sol";
+import {MoodNft} from "../../src/MoodNft.sol";
 
 contract DeployMoodNftTest is Test {
     DeployMoodNft public deployer;
@@ -13,13 +13,17 @@ contract DeployMoodNftTest is Test {
     }
 
     function testConvertSvgToUri() public view {
-        // bash: base64 -i example.svg:
+        // bash: base64 -i example.svg
+        // add prefix
+        // note: characters in example.svg file must in one line
         string
-            memory expectedUri = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+Cjx0ZXh0IHg9IjAiIHk9IjE1IiBmaWxsPSJibGFjayI+SGkhIFlvdXIgYnJvd3NlciBkZWNvZGVkIHRoaXM8L3RleHQ+Cjwvc3ZnPg==";
+            memory expectedUri = "data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMwIiB3aWR0aD0iMjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9IjUiIHk9IjE1IiBmaWxsPSJyZWQiPkkgbG92ZSBTVkchPC90ZXh0Pjwvc3ZnPg==";
         string
-            memory svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500"><text x="0" y="15" fill="black">Hi! Your browser decoded this</text></svg>';
+            memory svg = '<svg height="30" width="200" xmlns="http://www.w3.org/2000/svg"><text x="5" y="15" fill="red">I love SVG!</text></svg>';
 
         string memory actualUri = deployer.svgToImageURI(svg);
+        console.log(actualUri);
+        console.log(svg);
         assert(
             keccak256(abi.encodePacked(actualUri)) ==
                 keccak256(abi.encodePacked(expectedUri))
