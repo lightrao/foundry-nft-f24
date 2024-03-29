@@ -286,5 +286,12 @@ Talk about NFT
 
 - create `MoodNftTest.t.sol` file
   - add `testFlipTokenToSad` function
+  - run `forge test --match-test testFlipTokenToSad`
 
 ## SVG NFT: Debugging practice & some notes
+
+- run `forge test`
+- run `forge test --fork-url $SEPOLIA_RPC_URL`
+- run `forge coverage`
+
+## SVG NFT: Anvil Demo
