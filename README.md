@@ -269,3 +269,11 @@ Talk about NFT
   ```
 
 ## SVG NFT: Flipping the mood
+
+- create `flipMood` funciton in MoodNft contract
+
+## SVG NFT: Deploy Script
+
+- create `DeployMoodNft.s.sol`
+- create `DeployMoodNftTest.t.sol`
+- run:`forge test --match-test testConvertSvgToUri`
