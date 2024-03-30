@@ -1,16 +1,22 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
-import {Test} from "forge-std/Test.sol";
 import {DeployBasicNft} from "../../script/DeployBasicNft.s.sol";
 import {BasicNft} from "../../src/BasicNft.sol";
+import {Test, console} from "forge-std/Test.sol";
+import {StdCheats} from "forge-std/StdCheats.sol";
+import {MintBasicNft} from "../../script/Interactions.s.sol";
 
-contract BasicNftTest is Test {
-    DeployBasicNft public deployer;
+contract BasicNftTest is StdCheats, Test {
+    string constant NFT_NAME = "Dogie";
+    string constant NFT_SYMBOL = "DOG";
     BasicNft public basicNft;
-    address public USER = makeAddr("user");
-    string public constant PUG =
+    DeployBasicNft public deployer;
+    address public deployerAddress;
+
+    string public constant PUG_URI =
         "ipfs://bafybeig37ioir76s7mg5oobetncojcm3c3hxasyd4rvid4jqhy4gkaheg4/?filename=0-PUG.json";
+    address public USER = makeAddr("user");
 
     function setUp() public {
         deployer = new DeployBasicNft();
@@ -26,14 +32,38 @@ contract BasicNftTest is Test {
         );
     }
 
-    function testCanMintAndHaveBalance() public {
+    function testCanMintAndHaveABalance() public {
         vm.prank(USER);
-        basicNft.mintNft(PUG);
+        basicNft.mintNft(PUG_URI);
 
         assert(basicNft.balanceOf(USER) == 1);
+    }
+
+    function testTokenURIIsCorrect() public {
+        vm.prank(USER);
+        basicNft.mintNft(PUG_URI);
+
         assert(
-            keccak256(abi.encodePacked(PUG)) ==
-                keccak256(abi.encodePacked(basicNft.tokenURI(0)))
+            keccak256(abi.encodePacked(basicNft.tokenURI(0))) ==
+                keccak256(abi.encodePacked(PUG_URI))
         );
+    }
+
+    function testInitializedCorrectly() public view {
+        assert(
+            keccak256(abi.encodePacked(basicNft.name())) ==
+                keccak256(abi.encodePacked((NFT_NAME)))
+        );
+        assert(
+            keccak256(abi.encodePacked(basicNft.symbol())) ==
+                keccak256(abi.encodePacked((NFT_SYMBOL)))
+        );
+    }
+
+    function testMintWithScript() public {
+        uint256 startingTokenCount = basicNft.getTokenCounter();
+        MintBasicNft mintBasicNft = new MintBasicNft();
+        mintBasicNft.mintNftOnContract(address(basicNft));
+        assert(basicNft.getTokenCounter() == startingTokenCount + 1);
     }
 }

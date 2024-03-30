@@ -291,6 +291,7 @@ Talk about NFT
 ## SVG NFT: Debugging practice & some notes
 
 - run `forge test`
+- run `source .env`
 - run `forge test --fork-url $SEPOLIA_RPC_URL`
 - run `forge coverage`
 
