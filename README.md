@@ -296,3 +296,19 @@ Talk about NFT
 - run `forge coverage`
 
 ## SVG NFT: Anvil Demo
+
+- run `make anvil`
+- run `make deployMood`
+- add anvil chain into Metamask
+  - chainid: 31337
+  - rpc url: http://127.0.0.1:8545
+- add anvil account into Metamask
+- run `source .env`
+- run `cast send <nft_contract_address> "mintNft()" --private-key $FIRST_ANVIL_PRIVATE_KEY --rpc-url $ANVIL_RPC_URL`
+- import Nft contract into Metamask
+- run `cast send <nft_contract_address> "flipMood(uint256)" 0 --private-key $FIRST_ANVIL_PRIVATE_KEY --rpc-url $ANVIL_RPC_URL`
+- clear and reimport Nft
+- contract address on sepolia: `0xCAd35E6130f3E63ceDC7975F68d6068F029037F5`
+- should implement `interface ERC721Enumerable` described by `https://eips.ethereum.org/EIPS/eip-721`
+
+## Filecoin & Arweave
