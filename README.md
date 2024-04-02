@@ -312,3 +312,7 @@ Talk about NFT
 - should implement `interface ERC721Enumerable` described by `https://eips.ethereum.org/EIPS/eip-721`
 
 ## Filecoin & Arweave
+
+- decentralised data storage
+
+## Advanced: EVM Opcodes, Encoding, and Calling
